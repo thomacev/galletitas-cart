@@ -5,7 +5,12 @@ API REST para gestionar un carrito de compras de galletitas.
 ## Instalación
 
 ```bash
+git clone https://github.com/thomacev/galletitas-cart.git
+cd galletitas-cart
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+python main.py
 ```
 
 ## Uso
