@@ -5,7 +5,6 @@ from flasgger import Swagger
 app = Flask(__name__)
 swagger = Swagger(app)
 
-# Catálogo de productos
 productos = [
     {"id": 1, "nombre": "Don Satur", "precio": 1200},
     {"id": 2, "nombre": "Surtidas Bagley", "precio": 3200},
@@ -135,7 +134,7 @@ def agregar_producto(producto_id):
     if item_carrito:
         item_carrito["cantidad"] += 1
     else:
-        # Usamos el desempaquetado para copiar los datos del producto y añadir cantidad inicial
+        #El desempaquetado es para copiar los datos del producto y despues agregar la cantidad
         carrito.append({**producto, "cantidad": 1})
 
     return jsonify({"mensaje": f"'{producto['nombre']}' agregado al carrito."})

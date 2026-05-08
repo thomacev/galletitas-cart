@@ -4,7 +4,6 @@ import main
 
 @pytest.fixture(autouse=True)
 def reset_estado():
-    """Limpia el carrito antes de cada test para que sean independientes."""
     main.carrito.clear()
     yield
     main.carrito.clear()
