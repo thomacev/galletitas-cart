@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from database import conectar_db
+from backend.database import conectar_db
 
 carrito_blueprint = Blueprint('carrito', __name__)
 
@@ -24,7 +24,6 @@ def listar_productos():
         filas = db.fetchall()
         conexion.close()
 
-        # Convertimos las filas de SQLite en una lista de diccionarios para el JSON
         lista_productos = [dict(fila) for fila in filas]
         return jsonify({"productos": lista_productos}), 200
     except Exception as e:

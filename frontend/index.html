@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css">
+  <title>Galletitas Cart</title>
+</head>
+<body>
+
+<header>
+  <span>🍪</span>
+  <h1>Galletitas Cart</h1>
+</header>
+
+<main>
+  <section class="card" id="seccion-productos">
+    <h2>Catálogo</h2>
+    <div id="lista-productos">
+      <div class="spinner">Cargando productos…</div>
+    </div>
+  </section>
+
+  <aside class="card" id="seccion-carrito">
+    <h2>Tu carrito</h2>
+    <div id="lista-carrito">
+      <div class="spinner">Cargando carrito…</div>
+    </div>
+    <div id="resumen-total" hidden>
+      <div class="fila">
+        <span>Cantidad de items</span>
+        <span id="total-items">0</span>
+      </div>
+      <div class="fila grande">
+        <span>Total</span>
+        <span id="total-precio">$0.00</span>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>

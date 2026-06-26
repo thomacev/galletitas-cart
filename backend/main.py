@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
-from routes.carrito import carrito_blueprint
-from database import inicializar_db
+from backend.routes.carrito import carrito_blueprint
+from backend.database import inicializar_db
 from flasgger import Swagger
 
 
