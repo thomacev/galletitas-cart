@@ -101,10 +101,6 @@ pytest test_e2e.py -v
 
 ## Dificultades encontradas
 
-**Re-render completo del carrito causaba parpadeo visual**
-
-La primera versión del frontend reemplazaba el `innerHTML` completo del carrito después de cada acción (agregar o quitar un producto), lo que producía un parpadeo perceptible. Se resolvió implementando un sistema de patch: el JS guarda el estado previo del carrito en un objeto local (`estadoCarrito`) y, al recibir la respuesta de la API, compara el estado nuevo contra el anterior. Solo modifica los nodos del DOM que cambiaron: actualiza el texto de cantidad y subtotal en items existentes, inserta items nuevos con una animación de entrada, y remueve los que desaparecieron.
-
 **Chromium instalado via snap no levantaba con Selenium**
 
 Al intentar correr los tests E2E, Selenium fallaba con `session not created: Chrome instance exited`. El problema tenía dos causas: primero, `webdriver-manager` descargaba su propio chromedriver que no era compatible con el binario snap; segundo, el sandbox de snap requería flags adicionales que la configuración estándar no incluía. Se resolvió apuntando directamente al chromedriver empaquetado dentro del snap (`/snap/bin/chromium.chromedriver`), usando `options.binary_location` para indicar el binario correcto, y agregando los flags `--headless=new`, `--no-sandbox`, `--disable-dev-shm-usage` y `--disable-gpu`.
